@@ -7,19 +7,91 @@
 //
 
 import UIKit
+import Firebase
 
-class ViewController: UIViewController {
-
+class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, UITabBarDelegate {
+    
+    let cellId = "cellId"
+    var cellSize = 15
+    //let cellCount = 10000
+    let cellHexColor = "#121212"
+    
+    var ref: DatabaseReference!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        let but = UIButton()
+        but.frame = CGRect(x:0, y:0, width:100, height:100)
+        
+        but.backgroundColor = UIColor.blue
+        
+        but.addTarget(self, action: #selector(increaseCellSize), for: .touchUpInside)
+        
+        self.view.addSubview(but)
+        
+        let but2 = UIButton()
+        but2.frame = CGRect(x:100, y:0, width:100, height:100)
+        
+        but2.backgroundColor = UIColor.blue
+        
+        but2.addTarget(self, action: #selector(decreaseCellSize), for: .touchUpInside)
+        
+        self.view.addSubview(but2)
+        
+        
+        collectionView?.backgroundColor = UIColor(white: 0.95, alpha: 1)
+        collectionView?.register(ColorCell.self, forCellWithReuseIdentifier: cellId)
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
+        collectionView!.collectionViewLayout = layout
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func increaseCellSize() {
+         cellSize += 1
+        
+       
+        collectionView?.reloadData()
+    }
+    func decreaseCellSize() {
+        cellSize -= 1
+        
+        collectionView?.reloadData()
+        
+        
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        let width = Int(collectionView.frame.width)/cellSize
+        let height = Int(collectionView.frame.height-64)/cellSize
+        return width * height 
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let feedCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! ColorCell
+        
+        let pos: Int = indexPath.last!
+        let cellPerLine = Int(self.view.frame.size.width)/cellSize
+        let x = pos%cellPerLine
+        let y = pos/cellPerLine
+
+        feedCell.backgroundColor = UIColor.clear
+        feedCell.firPathObserver = "\(x),\(y)"   // Retreive firebase data at location
+        
+        return feedCell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        return CGSize(width: cellSize,height: cellSize)
+    }
+    
+    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        //This method will be called when user changes tab.
     }
 
 
 }
+
 

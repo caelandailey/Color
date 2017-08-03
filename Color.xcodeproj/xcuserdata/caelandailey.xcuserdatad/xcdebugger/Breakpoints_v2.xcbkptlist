@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Color/ViewController.swift"
+            timestampString = "523409891.939592"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Color/ViewController.swift"
+            timestampString = "523234381.532441"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "2"
+            endingLineNumber = "2">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Color.ViewController.__deallocating_deinit"
+                  moduleName = "Color"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/caelandailey/Desktop/Color/Color/ViewController.swift"
+                  timestampString = "523234424.266577"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Color.ViewController.init (collectionViewLayout : __ObjC.UICollectionViewLayout) -&gt; Color.ViewController"
+                  moduleName = "Color"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/caelandailey/Desktop/Color/Color/ViewController.swift"
+                  timestampString = "523234424.269149"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "35">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Color.ViewController.__allocating_init (collectionViewLayout : __ObjC.UICollectionViewLayout) -&gt; Color.ViewController"
+                  moduleName = "Color"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/caelandailey/Desktop/Color/Color/ViewController.swift"
+                  timestampString = "523234424.27196"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Color.ViewController.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; Color.ViewController"
+                  moduleName = "Color"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/caelandailey/Desktop/Color/Color/ViewController.swift"
+                  timestampString = "523234424.274992"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "79">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Color.ViewController.__allocating_init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; Color.ViewController"
+                  moduleName = "Color"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/caelandailey/Desktop/Color/Color/ViewController.swift"
+                  timestampString = "523234424.27857"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "23">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Color.ViewController.__allocating_init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;Color.ViewController&gt;"
+                  moduleName = "Color"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/caelandailey/Desktop/Color/Color/ViewController.swift"
+                  timestampString = "523234424.282455"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Color.ViewController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;Color.ViewController&gt;"
+                  moduleName = "Color"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/caelandailey/Desktop/Color/Color/ViewController.swift"
+                  timestampString = "523234424.286434"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "35">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
