@@ -16,6 +16,9 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
     //let cellCount = 10000
     let cellHexColor = "#121212"
     
+    var xPage = 1
+    var yPage = 1
+    
     var ref: DatabaseReference!
     
     override func viewDidLoad() {
@@ -49,13 +52,26 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
     }
 
     func increaseCellSize() {
-         cellSize += 1
+        
+        cellSize += 1
+        while(Int(self.view.frame.size.width) % cellSize != 0 && cellSize < 25)
+        {
+            cellSize += 1
+        }
+        
+       
+        if (cellSize > 25)
+        {
+            cellSize = 25
+        }
+        
         
         collectionView?.reloadData()
 
     }
     func decreaseCellSize() {
-        cellSize -= 1
+        
+        xPage += 1
         
         collectionView?.reloadData()
 
@@ -64,17 +80,25 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let width = Int(collectionView.frame.width)/cellSize
         let height = Int(collectionView.frame.height-64)/cellSize
-        return width * height
+        return width * height * 100
     }
 
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let feedCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! ColorCell
         feedCell.backgroundColor = UIColor.clear
+        
+        let width = Int(collectionView.frame.width)/cellSize
+        let height = Int(collectionView.frame.height-64)/cellSize
+        print(CGFloat(indexPath.last!)/CGFloat(width*height))
+   
         let pos: Int = indexPath.last!
         let cellPerLine = Int(self.view.frame.size.width)/cellSize
-        let x = pos%cellPerLine
-        let y = pos/cellPerLine
+        var x = pos%cellPerLine
+        var y = pos/cellPerLine
+        
+        x = x + xPage * cellPerLine - cellPerLine
+        y = y + yPage * cellPerLine - cellPerLine
         
         feedCell.firPathObserver = "\(x),\(y)"   // Retreive firebase data at location
 

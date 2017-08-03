@@ -35,7 +35,7 @@ class ColorCell: UICollectionViewCell {
         DispatchQueue.main.async {
             
             self.backgroundColor = UIColor(rgb: color)
-            print(self.frame.origin.y)
+            self.layer.borderWidth = 0
         }
     }
     
@@ -43,10 +43,10 @@ class ColorCell: UICollectionViewCell {
     
     func setupViews() {
         
-        firPathObserver = nil
-        
         addGestureRecognizer(UITapGestureRecognizer(target: self,action:#selector(uploadCellColor)))
         backgroundColor = UIColor.clear
+        layer.borderColor = UIColor.lightText.cgColor
+        layer.borderWidth = 1
     }
     
     func uploadCellColor() {
