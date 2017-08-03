@@ -12,7 +12,7 @@ import Firebase
 class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, UITabBarDelegate {
     
     let cellId = "cellId"
-    var cellSize = 15
+    var cellSize = 100
     //let cellCount = 10000
     let cellHexColor = "#121212"
     
@@ -51,22 +51,22 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
     func increaseCellSize() {
          cellSize += 1
         
-       
         collectionView?.reloadData()
+        collectionView?.collectionViewLayout.invalidateLayout()
     }
     func decreaseCellSize() {
         cellSize -= 1
         
         collectionView?.reloadData()
-        
-        
+        collectionView?.collectionViewLayout.invalidateLayout()
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let width = Int(collectionView.frame.width)/cellSize
         let height = Int(collectionView.frame.height-64)/cellSize
-        return width * height 
+        return width * height
     }
+
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let feedCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! ColorCell
@@ -75,20 +75,16 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
         let cellPerLine = Int(self.view.frame.size.width)/cellSize
         let x = pos%cellPerLine
         let y = pos/cellPerLine
-
+        feedCell
         feedCell.backgroundColor = UIColor.clear
         feedCell.firPathObserver = "\(x),\(y)"   // Retreive firebase data at location
-        
+
         return feedCell
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         return CGSize(width: cellSize,height: cellSize)
-    }
-    
-    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        //This method will be called when user changes tab.
     }
 
 
