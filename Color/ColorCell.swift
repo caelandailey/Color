@@ -12,41 +12,37 @@ import FirebaseDatabase
 
 class ColorCell: UICollectionViewCell {
     
+    let color = 121121
+    
     var firPathObserver : String? { //This will make sure that as soon as you set the value, it will fetch from firebase
         didSet {
-            if (firPathObserver == nil) {
-                return
-            }
-            let  ref = Database.database().reference().child(firPathObserver!)
+
+            let ref = Database.database().reference().child(firPathObserver!)
             ref.removeAllObservers()
+            
             ref.observe(.value, with: { snapshot in
                 
                 if let value = snapshot.value! as? Int {
                     self.setCellColor(value)
                     
-                }
+                };
             })
         }
     }
-    
     
     func setCellColor(_ color: Int) {
 
         DispatchQueue.main.async {
             
             self.backgroundColor = UIColor(rgb: color)
-            self.layer.borderWidth = 0
+            //self.layer.borderWidth = 0
         }
     }
-    
-    let color = 121121
     
     func setupViews() {
         
         addGestureRecognizer(UITapGestureRecognizer(target: self,action:#selector(uploadCellColor)))
         backgroundColor = UIColor.clear
-        layer.borderColor = UIColor.lightText.cgColor
-        layer.borderWidth = 1
     }
     
     func uploadCellColor() {
@@ -64,24 +60,4 @@ class ColorCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 }
-
-extension UIColor {
-    convenience init(red: Int, green: Int, blue: Int) {
-        
-        assert(red >= 0 && red <= 255, "Invalid red component")
-        assert(green >= 0 && green <= 255, "Invalid green component")
-        assert(blue >= 0 && blue <= 255, "Invalid blue component")
-        
-        self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
-    }
-    
-    convenience init(rgb: Int) {
-        self.init(
-            red: (rgb >> 16) & 0xFF,
-            green: (rgb >> 8) & 0xFF,
-            blue: rgb & 0xFF
-        )
-    }
-}
-
 

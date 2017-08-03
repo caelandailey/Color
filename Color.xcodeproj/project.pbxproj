@@ -13,6 +13,8 @@
 		38B5F6571F2FE1A8007F087C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38B5F6551F2FE1A8007F087C /* LaunchScreen.storyboard */; };
 		38B5F65F1F2FE2D7007F087C /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B5F65E1F2FE2D7007F087C /* ColorCell.swift */; };
 		38B5F6611F2FF74C007F087C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 38B5F6601F2FF74C007F087C /* GoogleService-Info.plist */; };
+		38B5F6C11F33DC65007F087C /* ColorCellLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B5F6C01F33DC65007F087C /* ColorCellLayout.swift */; };
+		38B5F6C31F33DFAD007F087C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B5F6C21F33DFAD007F087C /* Extensions.swift */; };
 		56C22B97833B44E0B224102C /* Pods_Color.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 265EDFD384E543AF687854B5 /* Pods_Color.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +30,8 @@
 		38B5F6581F2FE1A8007F087C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		38B5F65E1F2FE2D7007F087C /* ColorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
 		38B5F6601F2FF74C007F087C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		38B5F6C01F33DC65007F087C /* ColorCellLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCellLayout.swift; sourceTree = "<group>"; };
+		38B5F6C21F33DFAD007F087C /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,11 +69,13 @@
 			children = (
 				38B5F64C1F2FE1A8007F087C /* AppDelegate.swift */,
 				38B5F64E1F2FE1A8007F087C /* ViewController.swift */,
+				38B5F6C01F33DC65007F087C /* ColorCellLayout.swift */,
+				38B5F65E1F2FE2D7007F087C /* ColorCell.swift */,
 				38B5F6531F2FE1A8007F087C /* Assets.xcassets */,
 				38B5F6551F2FE1A8007F087C /* LaunchScreen.storyboard */,
 				38B5F6581F2FE1A8007F087C /* Info.plist */,
-				38B5F65E1F2FE2D7007F087C /* ColorCell.swift */,
 				38B5F6601F2FF74C007F087C /* GoogleService-Info.plist */,
+				38B5F6C21F33DFAD007F087C /* Extensions.swift */,
 			);
 			path = Color;
 			sourceTree = "<group>";
@@ -215,7 +221,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38B5F6C31F33DFAD007F087C /* Extensions.swift in Sources */,
 				38B5F64F1F2FE1A8007F087C /* ViewController.swift in Sources */,
+				38B5F6C11F33DC65007F087C /* ColorCellLayout.swift in Sources */,
 				38B5F64D1F2FE1A8007F087C /* AppDelegate.swift in Sources */,
 				38B5F65F1F2FE2D7007F087C /* ColorCell.swift in Sources */,
 			);

@@ -20,11 +20,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         
-                let layout = UICollectionViewFlowLayout()
+        let layout = UICollectionViewFlowLayout()
         
-                let viewController = ViewController(collectionViewLayout: layout)
-                window?.rootViewController = UINavigationController(rootViewController: viewController)
-                window?.rootViewController?.navigationController?.isNavigationBarHidden = true
+        let viewController = ViewController(collectionViewLayout: layout)
+        window?.rootViewController = viewController
+        
         FirebaseApp.configure()
         return true
     }
