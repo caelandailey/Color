@@ -14,16 +14,21 @@ class ColorCell: UICollectionViewCell {
     
     var firPathObserver : String? { //This will make sure that as soon as you set the value, it will fetch from firebase
         didSet {
-            
+            if (firPathObserver == nil) {
+                return
+            }
             let  ref = Database.database().reference().child(firPathObserver!)
+            ref.removeAllObservers()
             ref.observe(.value, with: { snapshot in
                 
                 if let value = snapshot.value! as? Int {
                     self.setCellColor(value)
+                    
                 }
             })
         }
     }
+    
     
     func setCellColor(_ color: Int) {
 
@@ -37,6 +42,8 @@ class ColorCell: UICollectionViewCell {
     let color = 121121
     
     func setupViews() {
+        
+        firPathObserver = nil
         
         addGestureRecognizer(UITapGestureRecognizer(target: self,action:#selector(uploadCellColor)))
         backgroundColor = UIColor.clear

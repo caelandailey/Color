@@ -12,7 +12,7 @@ import Firebase
 class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, UITabBarDelegate {
     
     let cellId = "cellId"
-    var cellSize = 100
+    var cellSize = 15
     //let cellCount = 10000
     let cellHexColor = "#121212"
     
@@ -52,13 +52,13 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
          cellSize += 1
         
         collectionView?.reloadData()
-        collectionView?.collectionViewLayout.invalidateLayout()
+
     }
     func decreaseCellSize() {
         cellSize -= 1
         
         collectionView?.reloadData()
-        collectionView?.collectionViewLayout.invalidateLayout()
+
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -70,13 +70,12 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let feedCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! ColorCell
-        
+        feedCell.backgroundColor = UIColor.clear
         let pos: Int = indexPath.last!
         let cellPerLine = Int(self.view.frame.size.width)/cellSize
         let x = pos%cellPerLine
         let y = pos/cellPerLine
-        feedCell
-        feedCell.backgroundColor = UIColor.clear
+        
         feedCell.firPathObserver = "\(x),\(y)"   // Retreive firebase data at location
 
         return feedCell
