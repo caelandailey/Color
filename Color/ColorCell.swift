@@ -17,13 +17,13 @@ class ColorCell: UICollectionViewCell {
     
     var firPathObserver : String? { //This will make sure that as soon as you set the value, it will fetch from firebase
         didSet {
-
+            
             let ref = Database.database().reference().child(firPathObserver!)
             ref.removeAllObservers()
             
             ref.observe(.value, with: { snapshot in
                 
-                if let value = snapshot.value! as? Int {
+                if let value = snapshot.value! as? String {
                     self.setCellColor(value)
                     
                 };
@@ -31,27 +31,21 @@ class ColorCell: UICollectionViewCell {
         }
     }
     
-    private func setCellColor(_ color: Int) {
+    private func setCellColor(_ color: String) {
 
         DispatchQueue.main.async {
-            
-            self.backgroundColor = UIColor(rgb: color)
-            //self.layer.borderWidth = 0
+            self.backgroundColor = UIColor(hexString: color)
         }
     }
     
     func setupViews() {
-        
-        addGestureRecognizer(UITapGestureRecognizer(target: self,action:#selector(uploadCellColor)))
+        layer.shouldRasterize = true
+        layer.rasterizationScale = UIScreen.main.scale
+        layer.masksToBounds = true
         backgroundColor = UIColor.clear
     }
     
-    func uploadCellColor() {
-     
-        let itemRef = Database.database().reference().child(firPathObserver!)
-        
-        itemRef.setValue(self.superview.cellHexColor) // 3
-    }
+    
 
     override init(frame: CGRect) {
         super.init(frame: frame)

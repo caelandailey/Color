@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let layout = UICollectionViewFlowLayout()
         
         let viewController = ViewController(collectionViewLayout: layout)
+        
         window?.rootViewController = viewController
         
         FirebaseApp.configure()

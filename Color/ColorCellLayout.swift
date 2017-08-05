@@ -43,7 +43,7 @@ class ColorCellLayout : UICollectionViewFlowLayout {
     override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
         let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
         let x : CGFloat = CGFloat(indexPath.row) * (itemWidth)
-        let y : CGFloat = CGFloat(indexPath.section) * (itemHeight)
+        let y : CGFloat = CGFloat(indexPath.section) * (itemHeight) + 64
         attributes.frame = CGRect(x: x, y: y, width: itemWidth, height: itemHeight)
         return attributes
     }
