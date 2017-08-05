@@ -12,7 +12,8 @@ import FirebaseDatabase
 
 class ColorCell: UICollectionViewCell {
     
-    let color = 121121
+    //let color = 121121
+    
     
     var firPathObserver : String? { //This will make sure that as soon as you set the value, it will fetch from firebase
         didSet {
@@ -30,7 +31,7 @@ class ColorCell: UICollectionViewCell {
         }
     }
     
-    func setCellColor(_ color: Int) {
+    private func setCellColor(_ color: Int) {
 
         DispatchQueue.main.async {
             
@@ -48,7 +49,8 @@ class ColorCell: UICollectionViewCell {
     func uploadCellColor() {
      
         let itemRef = Database.database().reference().child(firPathObserver!)
-        itemRef.setValue(color) // 3
+        
+        itemRef.setValue(self.superview.cellHexColor) // 3
     }
 
     override init(frame: CGRect) {
