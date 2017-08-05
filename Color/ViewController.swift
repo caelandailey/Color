@@ -12,7 +12,7 @@ import Firebase
 class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, UITextFieldDelegate{
     
     let cellId = "cellId"
-    var cellSize: CGFloat = 20.0
+    var cellSize: CGFloat = 15.0
     var cellHexColor = "121212"
     let colorPickerHeight:CGFloat = 100
     let topBarHeight:CGFloat = 64.0
@@ -28,18 +28,19 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
         collectionView?.translatesAutoresizingMaskIntoConstraints = true
         collectionView?.showsVerticalScrollIndicator = false
         collectionView?.showsHorizontalScrollIndicator = false
-        //collectionView?.backgroundColor = UIColor.groupTableViewBackground
         collectionView?.backgroundColor = UIColor(red: 255, green: 255, blue: 255)
+        
         collectionView?.register(ColorCell.self, forCellWithReuseIdentifier: cellId)
         collectionView?.collectionViewLayout = ColorCellLayout(itemWidth: cellSize, itemHeight: cellSize)
+        
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return Int(collectionView.frame.width/cellSize) * 5
+        return 100
     }
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return Int((collectionView.frame.height-colorPickerHeight-topBarHeight)/cellSize) * 5
+        return 100
     }
    
     
@@ -55,6 +56,7 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
+        
         for view in (self.view.subviews) {
             
             if !(view is UICollectionView) {
@@ -64,14 +66,9 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
         
         coordinator.animate(alongsideTransition: nil) { _ in
             
-            
             self.setupColorPicker()
             self.setupTopBar()
-            
-            
-           
             self.reloadCollectionView()
-            
         }
     }
     
@@ -93,12 +90,8 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
     func reloadCollectionView() {
         
         DispatchQueue.main.async {
-            
-            self.collectionView?.collectionViewLayout.invalidateLayout()
-            self.collectionView?.reloadData()
-            
+            self.collectionView?.collectionViewLayout = ColorCellLayout(itemWidth: self.cellSize, itemHeight: self.cellSize)
         }
-        
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool // called when 'return' key pressed. return false to ignore.
@@ -109,26 +102,24 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
             roomName = textField.text!
             reloadCollectionView()
         }
-        textField.resignFirstResponder()
         
+        textField.resignFirstResponder()
         return true
     }
     
     func zoomIn() {
         
-        if (cellSize < 150) {
+        if (cellSize < 45) {
             cellSize += 5
             reloadCollectionView()
         }
-        
     }
     
     func zoomOut() {
-        if (cellSize > 5) {
+        if (cellSize > 10) {
             cellSize -= 5
             reloadCollectionView()
         }
-        
     }
     
     func setupTopBar() {
@@ -183,7 +174,6 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
         let view = UIView()
         
         view.backgroundColor = UIColor.clear
-        //UIColor(red: 255, green: 250, blue: 255)
         view.frame = CGRect(x: 0, y: self.view.frame.height - colorPickerHeight, width: screenWidth, height: colorPickerHeight)
         
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.extraLight)
@@ -240,8 +230,6 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
         if let color = sender.backgroundColor?.toHexString {
             cellHexColor = color
         }
-        
     }
-    
 }
 
